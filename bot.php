@@ -1,6 +1,5 @@
 <?php
 $access_token = 'HnYiosVXrVsSbH35XHeQCkTgPn6Pa3shrsh+K7RJ8RIPF8hpXr4IBm40k/4B2lmr1mIRRl+JFwcohXq7JIXSmOOoBl2UhUoaMEGuRaD5uQ1kXURzsh2vwjY58D1/RPO523ZweZArgtN8XaHy5eZJvQdB04t89/1O/w1cDnyilFU=';
-$ composer require linecorp/line-bot-sdk
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -40,5 +39,4 @@ if (!is_null($events['events'])) {
 		}
 	}
 }
-$response = $bot->replyText('<reply token>', 'hello!');
 echo "OK";
