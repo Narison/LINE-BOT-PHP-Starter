@@ -15,22 +15,27 @@ if($arrJson['events'][0]['message']['text'] == "ลางาน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n\n1. ลาป่วย พิมพ์ 1\n2. ลาคลอด พิมพ์ 2\n3. ลาบวช พิมพ์ 3";
+  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n1. ลาป่วย พิมพ์ 1\n2. ลาคลอด พิมพ์ 2\n3. ลาบวช พิมพ์ 3";
 }else if($arrJson['events'][0]['message']['text'] == "1"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
+  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
+}else if($arrJson['events'][0]['message']['text'] == "2"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
+ }else if($arrJson['events'][0]['message']['text'] == "1"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
+  $arrPostData['messages'][0]['text'] = "คุณทำรายการผิดกรุณาทำรายการใหม่";
 }
  
  
