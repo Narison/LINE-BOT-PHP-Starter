@@ -20,7 +20,20 @@ if($arrJson['events'][0]['message']['text'] == "ลางาน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
+  $favcolor = "text";
+  switch ($favcolor) {
+    case "1" :
+        echo "คุณต้องการลาป่วย";
+        break;
+    case "2" :
+        echo "คุณต้องการลาคลอด";
+        break;
+    case "3" :
+        echo "ลาบวช";
+        break;
+    default:
+        echo "err!!!";
+}
 }else if($arrJson['events'][0]['message']['text'] == "2"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
