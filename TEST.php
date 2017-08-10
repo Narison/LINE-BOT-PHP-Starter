@@ -2,41 +2,16 @@
  
 $strAccessToken = "HnYiosVXrVsSbH35XHeQCkTgPn6Pa3shrsh+K7RJ8RIPF8hpXr4IBm40k/4B2lmr1mIRRl+JFwcohXq7JIXSmOOoBl2UhUoaMEGuRaD5uQ1kXURzsh2vwjY58D1/RPO523ZweZArgtN8XaHy5eZJvQdB04t89/1O/w1cDnyilFU=";
  
-$content = file_get_contents('php://input');
-$arrJson = json_decode($content, true);
- 
-$strUrl = "https://api.line.me/v2/bot/message/reply";
+$strUrl = "https://api.line.me/v2/bot/message/push";
  
 $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
-if($arrJson['events'][0]['message']['text'] == "ลางาน"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n1. ลาป่วย พิมพ์ 1\n2. ลาคลอด พิมพ์ 2\n3. ลาบวช พิมพ์ 3";
-}else if($arrJson['events'][0]['message']['text'] == "1"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
-}else if($arrJson['events'][0]['message']['text'] == "2"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
- }else if($arrJson['events'][0]['message']['text'] == "1"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
-}else{
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "คุณทำรายการผิดกรุณาทำรายการใหม่";
-}
+$arrPostData = array();
+$arrPostData['to'] = ".$arrJson['events'][0]['source']['userId']";
+$arrPostData['messages'][0]['type'] = "text";
+$arrPostData['messages'][0]['text'] = "นี้คือการทดสอบ Push Message";
  
  
 $ch = curl_init();
