@@ -16,7 +16,7 @@ if($arrJson['events'][0]['message']['text'] == "ลางาน"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n1. ลาป่วย พิมพ์ 1\n2. ลาคลอด พิมพ์ 2\n3. ลาบวช พิมพ์ 3";
-}else if($arrJson['events'][0]['message']['text'] == "1"){
+}else if($arrJson['events'][0]['message']['text'] == "text"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
@@ -33,17 +33,7 @@ if($arrJson['events'][0]['message']['text'] == "ลางาน"){
         break;
     default:
         echo "err!!!";
-}
-}else if($arrJson['events'][0]['message']['text'] == "2"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
- }else if($arrJson['events'][0]['message']['text'] == "1"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณากรอกหมายเลขบัตรประจำตัวประชาชน";
+  }
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
