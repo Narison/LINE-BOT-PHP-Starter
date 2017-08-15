@@ -29,6 +29,10 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
 }else if($arrJson['events'][0]['message']['text'] == "button"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+ {
+  $arrPostData['messages'][0]['type'] = "template";
+  $arrPostData['messages'][0]['altText'] = "this is a buttons template";
+  $arrPostData['messages'][0]['template'] = {
   $arrPostData['messages'][0]['type'] = "buttons";
   $arrPostData['messages'][0]['thumbnailImageUrl'] = "https://example.com/bot/images/image.jpg"; 
   $arrPostData['messages'][0]['title'] = "Menu";
@@ -51,6 +55,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
            $arrPostData['messages'][0]['uri'] = "http://example.com/page/123"
           }
       ]
+    }
   }
 }else{
   $arrPostData = array();
