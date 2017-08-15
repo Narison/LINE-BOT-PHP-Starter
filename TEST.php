@@ -30,7 +30,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "sticker";
-  $arrPostData['messages'][0]['packageId'] = "149";
+  $arrPostData['messages'][0]['packageId'] = "2";
   $arrPostData['messages'][0]['stickerId'] = "149";
 }
  
