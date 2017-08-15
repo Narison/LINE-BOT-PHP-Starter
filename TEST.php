@@ -26,6 +26,12 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+}else if($arrJson['events'][0]['message']['text'] == "Img"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "image";
+  $arrPostData['messages'][0]['originalContentUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBNzVvNWpUUTRXRm8/view?usp=sharing";
+  $arrPostData['messages'][0]['previewImageUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBQkVVamd4YVpNVDA/view?usp=sharing";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
