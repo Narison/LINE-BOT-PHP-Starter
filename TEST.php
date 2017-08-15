@@ -33,6 +33,25 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['thumbnailImageUrl'] = "https://example.com/bot/images/image.jpg"; 
   $arrPostData['messages'][0]['title'] = "Menu";
   $arrPostData['messages'][0]['text'] = "Please select";
+  $arrPostData['messages'][0]['actions'] =
+   [
+          {
+           $arrPostData['messages'][0]['type'] = "postback",
+           $arrPostData['messages'][0]['label'] = "Buy",
+           $arrPostData['messages'][0]['data'] = "action=buy&itemid=123"
+          },
+          {
+           $arrPostData['messages'][0]['type'] = "postback",
+           $arrPostData['messages'][0]['label'] "Add to cart",
+           $arrPostData['messages'][0]['data'] = "action=add&itemid=123"
+          },
+          {
+           $arrPostData['messages'][0]['type'] = "uri",
+           $arrPostData['messages'][0]['label'] "View detail",
+           $arrPostData['messages'][0]['uri'] = "http://example.com/page/123"
+          }
+      ]
+  }
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
