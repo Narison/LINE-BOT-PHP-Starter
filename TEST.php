@@ -50,14 +50,14 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
       $arrPostData['messages'][0]['text'] = "Are you sure?";
       $arrPostData['messages'][0]['actions'] = [
           {
-            $arrPostData['messages'][0]['type'] = "message";
-            $arrPostData['messages'][0]['label'] = "Yes";
-            $arrPostData['messages'][0]['text'] = "yes";
+            'type' = 'message',
+            'label'='Yes',
+            'text'= 'yes'
           },
           {
-            $arrPostData['messages'][0]['type'] = "message";
-            $arrPostData['messages'][0]['label'] = "No";
-            $arrPostData['messages'][0]['text'] = "no";
+            'type' = 'message',
+            'label'='No',
+            'text'= 'no'
           }
       ]
   }
