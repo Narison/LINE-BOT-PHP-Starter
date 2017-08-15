@@ -45,19 +45,19 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "template";
   $arrPostData['messages'][0]['altText'] = "this is a buttons template";
-  $arrPostData['messages'][0]['template'] = {
-      $arrPostData['messages'][0]['type'] = "confirm";
-      $arrPostData['messages'][0]['text'] = "Are you sure?";
-      $arrPostData['messages'][0]['actions'] = [
+   'template' = {
+      'type' = 'confirm',
+      'text' = 'Are you sure?',
+      'actions' = [
           {
-            'type' => 'message',
-            'label' => 'Yes',
-            'text' => 'yes'
+            'type' = 'message',
+            'label' = 'Yes',
+            'text' = 'yes'
           },
           {
-            'type' => 'message',
-            'label' => 'No',
-            'text' => 'no'
+            'type' = 'message',
+            'label' = 'No',
+            'text' = 'no'
           }
       ]
   }
