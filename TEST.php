@@ -40,27 +40,6 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['messages'][0]['type'] = "image";
   $arrPostData['messages'][0]['originalContentUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBNzVvNWpUUTRXRm8/view?usp=sharing";
   $arrPostData['messages'][0]['previewImageUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBQkVVamd4YVpNVDA/view?usp=sharing";
-}else if($arrJson['events'][0]['message']['text'] == "temp"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "template";
-  $arrPostData['messages'][0]['altText'] = "this is a buttons template";
-  $arrPostData['messages'][0]['template'] = {
-      $arrPostData['messages'][0]['type'] = "confirm";
-      $arrPostData['messages'][0]['text'] = "Are you sure?";
-      $arrPostData['messages'][0]['actions'] = [
-          {
-            $arrPostData['messages'][0]['type'] = "message";
-            $arrPostData['messages'][0]['label'] = "Yes";
-            $arrPostData['messages'][0]['text'] = "yes";
-          };
-          {
-            $arrPostData['messages'][0]['type'] = "message";
-            $arrPostData['messages'][0]['label'] = "No";
-            $arrPostData['messages'][0]['text'] = "no";
-          }
-      ]
-  }
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
