@@ -53,7 +53,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
             $arrPostData['messages'][0]['type'] = "message";
             $arrPostData['messages'][0]['label'] = "Yes";
             $arrPostData['messages'][0]['text'] = "yes";
-          }
+          };
           {
             $arrPostData['messages'][0]['type'] = "message";
             $arrPostData['messages'][0]['label'] = "No";
