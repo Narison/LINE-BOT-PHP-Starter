@@ -43,8 +43,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "image";
-  $arrPostData['messages'][0]['originalContentUrl'] = "http://www.mrwallpaper.com/wallpapers/Color-Pencils-1024x1024.jpg";
-  $arrPostData['messages'][0]['previewImageUrl'] = "http://www.windypress.com/files/wallpapers/the_fox_and_the_moon/the_fox_and_the_moon_240x240.jpg";
+  $arrPostData['messages'][0]['originalContentUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
+  $arrPostData['messages'][0]['previewImageUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
