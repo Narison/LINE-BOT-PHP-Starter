@@ -30,8 +30,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "location";
-  $arrPostData['messages'][0]['title'] = "my location";
-  $arrPostData['messages'][0]['address'] = "Prosoft HCM";
+  $arrPostData['messages'][0]['title'] = "บริษัท โปรซอฟท์ คอมเทค จำกัด";
+  $arrPostData['messages'][0]['address'] = "287 ซอย7 หมู่5 081 359 6921 เปิดจนถึง 17:45";
   $arrPostData['messages'][0]['latitude'] = "18.8254729";
   $arrPostData['messages'][0]['longitude'] = "99.01145250000002";
 }else if($arrJson['events'][0]['message']['text'] == "Img"){
