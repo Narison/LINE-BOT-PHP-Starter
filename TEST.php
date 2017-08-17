@@ -48,10 +48,9 @@ if($arrJson['events'][0]['message']['text'] == "Check ID"){
 }else{
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "sticker","text";
+  $arrPostData['messages'][0]['type'] = "sticker";
   $arrPostData['messages'][0]['packageId'] = "2";
   $arrPostData['messages'][0]['stickerId'] = "149";
-  $arrPostData['messages'][0]['text'] = "ฉันไม่เข้าใจคำสั่ง";
 }
  
  
