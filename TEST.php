@@ -20,7 +20,7 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "Profile คุณคือ ".$arrJson['events'][0]['source']['profile'];
+  $arrPostData['messages'][0]['text'] = "Profile คุณคือ ".$arrJson['events'][0]['source']['profile.displayName'];
 }else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
