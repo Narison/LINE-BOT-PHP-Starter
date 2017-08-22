@@ -11,27 +11,28 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
-if($arrJson['events'][0]['message']['text'] == "ID"){
+if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
-}else if($arrJson['events'][0]['message']['text'] == "ขอลา"){
+  $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
+}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n 1. ลากิจ พิมพ์ 001 \n 2. ลาป่วย พิมพ์ 002 \n 3. ลาพักร้อน พิมพ์ 003";
-}else if($arrJson['events'][0]['message']['text'] == "รหัสยืนยันขอลา"){
+  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
+}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ขอลาเรียบร้อย";
-}else if($arrJson['events'][0]['message']['text'] == "ทดสอบ"){
+  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+}else if($arrJson['events'][0]['message']['text'] == "ลงทะเบียน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "https://devdocs.line.me/en/?php#webhook-event-object";
-}else if($arrJson['events'][0]['message']['text'] == "Location"){
+  $arrPostData['messages'][0]['text'] = "ยินดีต้อนรับสู่ Prosoft.... ที่นี้คุณสามารถทำการขอลา และ ขอ....บอกเลยห้ามพลาด !
+\n ดูเหมือนคุณยังไม่ได้ทำการลงทะเบียน กรุณาพิมพ์ รหัสพนักของคุณ";
+}else if($arrJson['events'][0]['message']['text'] == "ที่อยู่"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "location";
@@ -43,28 +44,35 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "image";
-  $arrPostData['messages'][0]['originalContentUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-  $arrPostData['messages'][0]['previewImageUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
-}else{
-switch{
+  $arrPostData['messages'][0]['originalContentUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBNzVvNWpUUTRXRm8/view?usp=sharing";
+  $arrPostData['messages'][0]['previewImageUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBQkVVamd4YVpNVDA/view?usp=sharing";
+}else if($arrJson['events'][0]['message']['text'] == "temp"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-    case "001":
-       $arrPostData['messages'][0]['type'] = "text";
-       $arrPostData['messages'][0]['text'] = "ลากิจ";
-        break;
-    case "002":
-       $arrPostData['messages'][0]['type'] = "text";
-       $arrPostData['messages'][0]['text'] = "ลาป่วย";
-        break;
-    case "003":
-       $arrPostData['messages'][0]['type'] = "text";
-       $arrPostData['messages'][0]['text'] = "ลาพักร้อน";
-        break;
-    default:
-       $arrPostData['messages'][0]['type'] = "text";
-       $arrPostData['messages'][0]['text'] = "มั่ว";
-}
+  $arrPostData['messages'][0]['type'] = "template";
+  $arrPostData['messages'][0]['altText'] = "this is a buttons template";
+  $arrPostData['messages'][0]['template'] = {
+      $arrPostData['messages'][0]['type'] = "confirm";
+      $arrPostData['messages'][0]['text'] = "Are you sure?";
+      $arrPostData['messages'][0]['actions'] = [
+          {
+            $arrPostData['messages'][0]['type'] = "message";
+            $arrPostData['messages'][0]['label'] = "Yes";
+            $arrPostData['messages'][0]['text'] = "yes";
+          };
+          {
+            $arrPostData['messages'][0]['type'] = "message";
+            $arrPostData['messages'][0]['label'] = "No";
+            $arrPostData['messages'][0]['text'] = "no";
+          }
+      ]
+  }
+}else{
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "sticker";
+  $arrPostData['messages'][0]['packageId'] = "2";
+  $arrPostData['messages'][0]['stickerId'] = "149";
 }
  
  
