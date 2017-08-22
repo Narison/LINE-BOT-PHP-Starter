@@ -16,16 +16,16 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
-}else if($arrJson['events'][0]['message']['text'] == "ชื่ออะไร"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันยังไม่มีชื่อนะ";
 }else if($arrJson['events'][0]['message']['text'] == "ขอลา"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภท\n1. ลากิจ\n2. ลาบวช \n3. ลาคลอด";
+  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n 1. ลากิจ พิมพ์ 001 \n 2. ลาป่วย พิมพ์ 002 \n 3. ลาพักร้อน พิมพ์ 003 \n 4. ลากิจ พิมพ์ 004 \n 4. ลาป่วย พิมพ์";
+}else if($arrJson['events'][0]['message']['text'] == "รหัสยืนยันขอลา"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "ขอลาเรียบร้อย";
 }else if($arrJson['events'][0]['message']['text'] == "ทดสอบ"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
