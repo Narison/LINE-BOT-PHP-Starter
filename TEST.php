@@ -30,8 +30,8 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ยินดีต้อนรับสู่ Prosoft.... ที่นี้คุณสามารถทำการขอลา และ ขอ....บอกเลยห้ามพลาด !
-\n ดูเหมือนคุณยังไม่ได้ทำการลงทะเบียน กรุณาพิมพ์ รหัสพนักของคุณ";
+  $arrPostData['messages'][0]['text'] = "ยินดีต้อนรับสู่ Prosoft.... ที่นี้คุณสามารถทำการขอลา และ ยังสามรถขอ....ได้ บอกเลยห้ามพลาด !
+\nดูเหมือนคุณจะยังไม่ได้ทำการลงทะเบียน กรุณาพิมพ์ รหัสพนักของคุณ";
 }else if($arrJson['events'][0]['message']['text'] == "บัตร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
