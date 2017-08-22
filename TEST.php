@@ -11,7 +11,7 @@ $arrHeader = array();
 $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
  
-if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
+if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
@@ -42,10 +42,7 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "คุณได้ทำการลงทะเบียนเรียบร้อยแล้ว\nคุณสามารถทำการขอลาได้ด้วยการ\nพิมพ์ ขอลา";
-  $arrPostData['messages'][0]['type'] = "image";
-  $arrPostData['messages'][0]['originalContentUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBNzVvNWpUUTRXRm8/view?usp=sharing";
-  $arrPostData['messages'][0]['previewImageUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBQkVVamd4YVpNVDA/view?usp=sharing";
-}else if($arrJson['events'][0]['message']['text'] == "ที่อยู่"){
+}else if($arrJson['events'][0]['message']['text'] == "Location"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "location";
