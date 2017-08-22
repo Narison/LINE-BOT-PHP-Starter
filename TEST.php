@@ -20,7 +20,7 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n 1. ลากิจ พิมพ์ 001 \n 2. ลาป่วย พิมพ์ 002 \n 3. ลาพักร้อน พิมพ์ 003 \n 4. ลากิจ พิมพ์ 004 \n 4. ลาป่วย พิมพ์";
+  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n 1. ลากิจ พิมพ์ 001 \n 2. ลาป่วย พิมพ์ 002 \n 3. ลาพักร้อน พิมพ์ 003 \n 4. ลากิจ พิมพ์ 004";
 }else if($arrJson['events'][0]['message']['text'] == "รหัสยืนยันขอลา"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
