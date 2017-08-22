@@ -36,7 +36,12 @@ if($arrJson['events'][0]['message']['text'] == "สวัสดี"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาพิมพ์ เลข 4 ตัวท้ายบัตรประชาชนของคุณ";
+  $arrPostData['messages'][0]['text'] = "กรุณาพิมพ์ \nเลข 4 ตัวท้ายบัตรประชาชนของคุณ";
+}else if($arrJson['events'][0]['message']['text'] == "ขอบคุณ"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "คุณทำรายการเรียบร้อยแล้ว \n คุณสามารถทำการขอลาได้ด้วยการ พิมพ์ "ขอลา"";
 }else if($arrJson['events'][0]['message']['text'] == "ที่อยู่"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
