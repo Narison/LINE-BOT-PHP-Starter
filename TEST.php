@@ -20,7 +20,7 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n 1. ลากิจ พิมพ์ 001 \n 2. ลาป่วย พิมพ์ 002 \n 3. ลาพักร้อน พิมพ์ 003 \n 4. ลากิจ พิมพ์ 004";
+  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n 1. ลากิจ พิมพ์ 001 \n 2. ลาป่วย พิมพ์ 002 \n 3. ลาพักร้อน พิมพ์ 003";
 }else if($arrJson['events'][0]['message']['text'] == "รหัสยืนยันขอลา"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
@@ -46,39 +46,18 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['messages'][0]['originalContentUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
   $arrPostData['messages'][0]['previewImageUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
 }else{
-  if (!is_null($arrJson['events'])) {
-	// Loop through each event
-	foreach ($arrJson['events'] as $event) {
-		// Reply only when message sent is in 'text' format
-		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
-			// Get text sent
-			$text = $event['message']['text'];
-			// Get replyToken
-			$replyToken = $event['replyToken'];
-			// Build message to reply back
-			$messages = [
-				'type' => 'text',
-				'text' => 'เมื่อกี้คุณบอกว่า'.$text
-			];
-			// Make a POST Request to Messaging API to reply to sender
-			$url = 'https://api.line.me/v2/bot/message/reply';
-			$data = [
-				'replyToken' => $replyToken,
-				'messages' => [$messages],
-			];
-			$post = json_encode($data);
-			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $strAccessToken);
-			$ch = curl_init($url);
-			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-			$result = curl_exec($ch);
-			curl_close($ch);
-			echo $result . "\r\n";
-		}
-	}
+switch ($arrJson) {
+    case "001":
+        echo "ลากิจ";
+        break;
+    case "002":
+        echo "ลาป่วย";
+        break;
+    case "003":
+        echo "ลาพักร้อน";
+        break;
+    default:
+        echo "มึงมั่วละ";
 }
 }
  
