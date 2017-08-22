@@ -46,18 +46,24 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['messages'][0]['originalContentUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
   $arrPostData['messages'][0]['previewImageUrl'] = "https://cdn.shopify.com/s/files/1/0379/7669/products/sampleset2_1024x1024.JPG?v=1458740363";
 }else{
-switch ($arrJson) {
+switch{
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
     case "001":
-        echo "ลากิจ";
+       $arrPostData['messages'][0]['type'] = "text";
+       $arrPostData['messages'][0]['text'] = "ลากิจ";
         break;
     case "002":
-        echo "ลาป่วย";
+       $arrPostData['messages'][0]['type'] = "text";
+       $arrPostData['messages'][0]['text'] = "ลาป่วย";
         break;
     case "003":
-        echo "ลาพักร้อน";
+       $arrPostData['messages'][0]['type'] = "text";
+       $arrPostData['messages'][0]['text'] = "ลาพักร้อน";
         break;
     default:
-        echo "มึงมั่วละ";
+       $arrPostData['messages'][0]['type'] = "text";
+       $arrPostData['messages'][0]['text'] = "มั่ว";
 }
 }
  
