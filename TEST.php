@@ -30,8 +30,10 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
 }else if($arrJson['events'][0]['message']['text'] == "บัตร"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาพิมพ์ \nเลข 4 ตัวท้ายบัตรประชาชนของคุณ";
+  $arrPostData['messages'][0]['displayName'] = "LINE taro";
+  $arrPostData['messages'][0]['userId'] = .$arrJson['events'][0]['source']['userId'];
+  $arrPostData['messages'][0]['pictureUrl'] = "http://obs.line-apps.com/...";
+  $arrPostData['messages'][0]['statusMessage'] = "Hello, LINE!";
 }else if($arrJson['events'][0]['message']['text'] == "ขอบคุณ"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
