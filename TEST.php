@@ -1,7 +1,7 @@
 <?php
  
 $strAccessToken = "HnYiosVXrVsSbH35XHeQCkTgPn6Pa3shrsh+K7RJ8RIPF8hpXr4IBm40k/4B2lmr1mIRRl+JFwcohXq7JIXSmOOoBl2UhUoaMEGuRaD5uQ1kXURzsh2vwjY58D1/RPO523ZweZArgtN8XaHy5eZJvQdB04t89/1O/w1cDnyilFU=";
- 
+
 $content = file_get_contents('php://input');
 $arrJson = json_decode($content, true);
  
@@ -21,11 +21,18 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา";
-}else if($arrJson['events'][0]['message']['text'] == "ทำอะไรได้บ้าง"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+}else if($arrJson['events'][0]['message']['text'] == "Profile"){
+ $arrPostData = array();
+ $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+ $httpClient = new \LINE\LINEBot\HTTPClient\CurlHTTPClient(.$strAccessToken);
+ $bot = new \LINE\LINEBot($httpClient, ['channelSecret' => '53580e5121a5cf757d4ea3342b91b2da']);
+ $response = $bot->getProfile(.$arrJson['events'][0]['source']['userId']);
+ if ($response->isSucceeded()) {
+    $profile = $response->getJSONDecodedBody();
+    echo $profile['displayName'];
+    echo $profile['pictureUrl'];
+    echo $profile['statusMessage'];
+}
 }else if($arrJson['events'][0]['message']['text'] == "ลงทะเบียน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
