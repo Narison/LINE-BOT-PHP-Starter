@@ -27,13 +27,6 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "ยินดีต้อนรับสู่ Prosoft.... ที่นี้คุณสามารถทำการขอลา และ ยังสามรถขอ....ได้ บอกเลยห้ามพลาด !
 \nดูเหมือนคุณจะยังไม่ได้ทำการลงทะเบียน กรุณาพิมพ์ รหัสพนักของคุณ";
-}else if($arrJson['events'][0]['message']['text'] == "บัตร"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['displayName'] = "LINE taro";
-  $arrPostData['messages'][0]['userId'] = .$arrJson['events'][0]['source']['userId'];
-  $arrPostData['messages'][0]['pictureUrl'] = "http://obs.line-apps.com/...";
-  $arrPostData['messages'][0]['statusMessage'] = "Hello, LINE!";
 }else if($arrJson['events'][0]['message']['text'] == "ขอบคุณ"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
