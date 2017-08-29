@@ -46,12 +46,49 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['messages'][0]['type'] = "image";
   $arrPostData['messages'][0]['originalContentUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBNzVvNWpUUTRXRm8/view?usp=sharing";
   $arrPostData['messages'][0]['previewImageUrl'] = "https://drive.google.com/file/d/0B_jiBQxoXSnBQkVVamd4YVpNVDA/view?usp=sharing";
-}else{
+}else if($arrJson['events'][0]['message']['text'] == "sticker"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "sticker";
   $arrPostData['messages'][0]['packageId'] = "2";
   $arrPostData['messages'][0]['stickerId'] = "149";
+}else{
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+ if (!is_null($arrJson['events'])) {
+	// Loop through each event
+	foreach ($arrJson['events'] as $event) {
+		// Reply only when message sent is in 'text' format
+		if ($event['type'] == 'message' && $event['message']['type'] == 'text') {
+			// Get text sent
+			$text = $event['message']['text'];
+			// Get replyToken
+			$replyToken = $event['replyToken'];
+			// Build message to reply back
+			$messages = [
+				'type' => 'text',
+				'text' => $text
+			];
+			// Make a POST Request to Messaging API to reply to sender
+			$url = 'https://api.line.me/v2/bot/message/reply';
+			$data = [
+				'replyToken' => $replyToken,
+				'messages' => [$messages],
+			];
+			$post = json_encode($data);
+			$headers = array('Content-Type: application/json', 'Authorization: Bearer ' . $strAccessToken);
+			$ch = curl_init($url);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+			curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+			$result = curl_exec($ch);
+			curl_close($ch);
+			echo $result . "\r\n";
+		}
+	}
+}
 }
 
 $ch = curl_init();
