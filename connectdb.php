@@ -1,8 +1,3 @@
-<html>
-<head>
-<title>ThaiCreate.Com PHP & SQL Server Tutorial</title>
-</head>
-<body>
 <?php
 	$objConnect = mssql_connect("localhost","NARISON\HRMI-PM2","");
 	if($objConnect)
@@ -16,5 +11,4 @@
 
 	mssql_close($objConnect);
 ?>
-</body>
-</html>
+
