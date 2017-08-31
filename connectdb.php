@@ -1,5 +1,5 @@
 <?php
-$serverName = "serverName\sqlexpress"; //serverName\instanceName
+$serverName = "PSHOSTWEB\sqlexpress"; //serverName\instanceName
 $connectionInfo = array( "Database"=>"essdemo", "UID"=>"prosofthost", "PWD"=>"Hostweb$123");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
