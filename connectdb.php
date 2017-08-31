@@ -1,13 +1,17 @@
 <?php
-$objConnect = mssql_connect("43.255.240.112\essdemo","prosofthost","Hostweb$123");
+$ip = '43.255.240.122';
+$port = '8080';
+$server_name = 'PSHOSTWEB';    
+$server = "$ip,$port\PSHOSTWEB"; // <-- this is the line I need help with
+$username = 'prosofthost';
+$password = 'Hostweb$123';
+$con = mssql_connect($server_name.",".$port,$username,$password);
 
-if($objConnect)  
-{
-  echo "Database Connected.<br />";  
-}  
-else  
-{  
-  echo "Database Connect Failed.<br />";  
-  echo mssql_error();
-}  
+
+if( $con ) {
+     echo "Connection established.<br />";
+}else{
+     echo "Connection could not be established.<br />";
+     die( print_r( sqlsrv_errors(), true));
+}
 ?>
