@@ -1,6 +1,6 @@
 <?php
 $ip = '43.255.240.122';
-$port = '8080';
+$port = '1443';
 $server_name = 'PSHOSTWEB';    
 $server = "$ip,$port\PSHOSTWEB"; // <-- this is the line I need help with
 $username = 'prosofthost';
