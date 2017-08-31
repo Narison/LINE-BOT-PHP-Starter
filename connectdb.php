@@ -1,5 +1,5 @@
 <?php
-$serverName = "serverName\PSHOSTWEB"; //serverName\instanceName
+$serverName = "serverName\PSHOSTWEB, 1443"; //serverName\instanceName
 $connectionInfo = array( "Database"=>"essdemo", "UID"=>"prosofthost", "PWD"=>"Hostweb$123");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
