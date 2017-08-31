@@ -1,12 +1,14 @@
 <?php
-$serverName = "serverName\PSHOSTWEB"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"essdemo", "UID"=>"prosofthost", "PWD"=>"Hostweb$123");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
+$servername = "PSHOSTWEB";
+$username = "prosofthost";
+$password = "Hostweb$123";
 
-if( $conn ) {
-     echo "Connection established.<br />";
-}else{
-     echo "Connection could not be established.<br />";
-     die( print_r( sqlsrv_errors(), true));
-}
+// Create connection
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
 ?>
