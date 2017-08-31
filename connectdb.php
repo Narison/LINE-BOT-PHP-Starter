@@ -1,14 +1,12 @@
 <?php
-	$objConnect = mssql_connect("localhost","NARISON\HRMI-PM2","");
-	if($objConnect)
-	{
-		echo "Database Connected.";
-	}
-	else
-	{
-		echo "Database Connect Failed.";
-	}
+$serverName = "serverName\PSHOSTWEB"; //serverName\instanceName
+$connectionInfo = array( "Database"=>"essdemo", "UID"=>"prosofthost", "PWD"=>"Hostweb$123");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-	mssql_close($objConnect);
+if( $conn ) {
+     echo "Connection established.<br />";
+}else{
+     echo "Connection could not be established.<br />";
+     die( print_r( sqlsrv_errors(), true));
+}
 ?>
-
