@@ -1,14 +1,9 @@
 <?php
-$ip = '43.255.240.122';
-$port = '1443';
-$server_name = 'PSHOSTWEB';    
-$server = "$ip,$port\PSHOSTWEB"; // <-- this is the line I need help with
-$username = 'prosofthost';
-$password = 'Hostweb$123';
-$con = mssql_connect($server_name.",".$port,$username,$password);
+$serverName = "serverName\PSHOSTWEB"; //serverName\instanceName
+$connectionInfo = array( "Database"=>"essdemo", "UID"=>"prosofthost", "PWD"=>"Hostweb$123");
+$conn = sqlsrv_connect( $serverName, $connectionInfo);
 
-
-if( $con ) {
+if( $conn ) {
      echo "Connection established.<br />";
 }else{
      echo "Connection could not be established.<br />";
