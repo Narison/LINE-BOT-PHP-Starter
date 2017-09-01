@@ -1,5 +1,5 @@
 <?php
-$host = "http://localhost";
+$host = "localhost";
 $username = "root";
 $password = "";
 $objConnect = mysql_connect($host,$username,$password);
