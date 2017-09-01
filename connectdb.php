@@ -1,12 +1,17 @@
 <?php
-$serverName = "serverName\PSHOSTWEB"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"essdemo", "UID"=>"prosofthost", "PWD"=>"Hostweb$123");
-$conn = sqlsrv_connect( $serverName, $connectionInfo);
+$host = "http://localhost";
+$username = "root";
+$password = "";
+$objConnect = mysql_connect($host,$username,$password);
 
-if( $conn ) {
-     echo "Connection established.<br />";
-}else{
-     echo "Connection could not be established.<br />";
-     die( print_r( sqlsrv_errors(), true));
+if($objConnect)
+{
+	echo "MySQL Connected";
 }
+else
+{
+	echo "MySQL Connect Failed : Error : ".mysql_error();
+}
+
+mysql_close($objConnect);
 ?>
