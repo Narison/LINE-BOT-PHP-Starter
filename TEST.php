@@ -1,4 +1,5 @@
 <?php
+include ('intelligence/testfunction.php');
 
 $strAccessToken = "HnYiosVXrVsSbH35XHeQCkTgPn6Pa3shrsh+K7RJ8RIPF8hpXr4IBm40k/4B2lmr1mIRRl+JFwcohXq7JIXSmOOoBl2UhUoaMEGuRaD5uQ1kXURzsh2vwjY58D1/RPO523ZweZArgtN8XaHy5eZJvQdB04t89/1O/w1cDnyilFU=";
 
@@ -16,22 +17,56 @@ if($arrJson['events'][0]['message']['text'] == "ID"){
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "สวัสดี ID คุณคือ ".$arrJson['events'][0]['source']['userId'];
-}else if($arrJson['events'][0]['message']['text'] == "ขอลา"){
-  $arrPostData = array();
-  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
-  $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา";
 }else if($arrJson['events'][0]['message']['text'] == "ลงทะเบียน"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ยินดีต้อนรับสู่ Prosoft.... ที่นี้คุณสามารถทำการขอลา และ ยังสามรถขอ....ได้ บอกเลยห้ามพลาด !
-\nดูเหมือนคุณจะยังไม่ได้ทำการลงทะเบียน กรุณาพิมพ์ รหัสพนักของคุณ";
-}else if($arrJson['events'][0]['message']['text'] == "ขอบคุณ"){
+  $arrPostData['messages'][0]['text'] = "กรุณาพิมพ์รหัสพนักงานของคุณ";
+}else if($arrJson['events'][0]['message']['text'] == "xxx"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "คุณได้ทำการลงทะเบียนเรียบร้อยแล้ว\nคุณสามารถทำการขอลาได้ด้วยการ\nพิมพ์ ขอลา";
+  $arrPostData['messages'][0]['text'] = "กรุณาพิมพ์เลขท้าย 4 ตัว\nของบัตรประชาชนคุณ";
+}else if($arrJson['events'][0]['message']['text'] == "xxxx"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "คุณ..............\nรหัสพนักงาน xxx\nได้ทำการลงทะเบียนเรียบร้อยแล้ว\nคุณสามารถดูรายการที่เปิดให้บริการ\nด้วยการพิมพ์ เมนู";
+}else if($arrJson['events'][0]['message']['text'] == "เมนู"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "รายการที่ให้บริการ\nคุณสามารเลือกทำรายการได้ด้วยการพิมพ์หมายเลขของเมนู\n1. ขอลา";  
+}else if($arrJson['events'][0]['message']['text'] == "1"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "กรุณาเลือกประเภทการลา\n1. ลากิจ พิมพ์ 001\n2. ลาป่วย พิมพ์ 002";
+}
+
+
+else if($arrJson['events'][0]['message']['text'] == "003" || $arrJson->text == "cal"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "กรุณากรอกสาเหตุการลา";
+}
+
+else if($arrJson['events'][0]['message']['text'] == "002"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "กรุณากรอกสาเหตุการลา";
+}else if($arrJson['events'][0]['message']['text'] == "เป็นไข้"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "คุณ.........\nได้ทำการ ขอลาป่าว\nด้วยสาเหตุ..... \nกรุณาพิมพ์เลขท้าย 4 ตัว\nของบัตรประชาชนคุณ\nเพื่อยืนยัน";
+}else if($arrJson['events'][0]['message']['text'] == "xxx1"){
+  $arrPostData = array();
+  $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+  $arrPostData['messages'][0]['type'] = "text";
+  $arrPostData['messages'][0]['text'] = "ระบบได้ทำการขออนุมัติลาเรียบร้อยแล้ว";
 }else if($arrJson['events'][0]['message']['text'] == "Location"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
